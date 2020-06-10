@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.LoginController">
-    <stylesheets>
-        <URL value="@login.css"/>
-    </stylesheets>
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1220.0" stylesheets="@login.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.LoginController">
+   <center>
+      <AnchorPane prefHeight="443.0" prefWidth="665.0" stylesheets="@login.css" BorderPane.alignment="CENTER">
+         <children>
+            <HBox layoutX="567.0" layoutY="599.0" spacing="30.0">
+               <children>
+                  <Button id="button" fx:id="sign_in" mnemonicParsing="false" prefHeight="39.0" prefWidth="123.0" stylesheets="@login.css" text="Sign in" />
+                  <Button id="button" fx:id="sign_up" mnemonicParsing="false" prefHeight="39.0" prefWidth="123.0" stylesheets="@login.css" text="Sign up" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
