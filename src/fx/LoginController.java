@@ -44,10 +44,12 @@ public class LoginController implements Initializable {
 
                 Parent signUp = FXMLLoader.load(getClass().getResource("signUp.fxml"));
                 Scene scene = new Scene(signUp,1500, 870);
+                scene.getStylesheets().add(this.getClass().getResource("login.css").toExternalForm());
                 
                 //This line gets the stage information
                 Stage window = (Stage)((Node)event.getSource()).getScene().getWindow(); 
                 window.setScene(scene);
+                window.setTitle("Sign up");
                 window.setMaximized(true);
                 window.show();
                 

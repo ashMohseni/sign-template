@@ -26,7 +26,7 @@ public class Main extends Application {
         sceneX.getStylesheets().addAll(this.getClass().getResource("login.css").toExternalForm());
         primaryStage.setMaximized(true);
         window.setScene(sceneX);
-        window.setTitle("Login");
+        window.setTitle("Sign in");
         window.show();
     }
 
