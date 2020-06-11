@@ -3,9 +3,13 @@ package fx;
 
 import java.net.URL;
 import java.util.ResourceBundle; 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button; 
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -14,9 +18,9 @@ import javafx.scene.control.Button;
  */
 public class LoginController implements Initializable {
 
-    @FXML private Button sign_in;
-    @FXML private Button sign_up;
-
+    @FXML private Button sign_in; 
+    @FXML  private Label sign_up;
+    
     /**
      * Initializes the controller class.
      */
@@ -24,5 +28,13 @@ public class LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
     }    
+
+    @FXML
+    private void Sign_in(ActionEvent event) {
+    }
+
+    @FXML
+    private void sign_up(MouseEvent event) {
+    }
     
 }

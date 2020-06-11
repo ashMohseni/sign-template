@@ -1,28 +1,39 @@
-/*
- * Empty Stylesheet file.
- */
 
 .root{
-  -fx-background-image: url("../resources/more-trees.jpg");
-  -fx-background-size: cover;
+    -fx-background-image: url("../resources/more-trees.jpg");
+    -fx-background-size: cover;
 }
 
-.button{
-    -fx-background-color: transparent; 
+#sign-in{
+    -fx-background-color: rgba(74, 148, 53, 0.8); 
     -fx-text-fill: white;
-    -fx-border-color: white;
-    -fx-border-width: 2.5;
-    -fx-border-radius: 5;
+    -fx-background-radius: 5;
     -fx-font-size: 18;
 }
+#sign-in:hover{
+    -fx-background-color: #7cd164; 
+    -fx-background-color: rgba(74, 148, 53, 0.9); 
 
-.button:hover{
-     -fx-border-color: black;
-     -fx-text-fill: white;
 }
 
 #user-title, #pass-title{
-    -fx-text-fill: white;
-    -fx-font-size: 18;
+    -fx-text-fill: black;
+    -fx-font-size: 20;
     -fx-font-weight: bold;
+}
+
+
+#sign-up{
+    -fx-text-fill: #6b9ded;
+    -fx-font-size: 18;
+}
+
+#sign-up:hover{
+    -fx-text-fill: #4287f5;
+}
+
+#main-VBox{
+    -fx-background-color: rgba(255,255,255, 0.8); 
+    -fx-background-radius: 6;
+
 }
