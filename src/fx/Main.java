@@ -22,7 +22,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         window = primaryStage;
         Pane root2 = FXMLLoader.load(getClass().getResource("Login.fxml"));
-        Scene sceneX = new Scene(root2, 830, 350);
+        Scene sceneX = new Scene(root2, 1500, 870);
         sceneX.getStylesheets().addAll(this.getClass().getResource("login.css").toExternalForm());
         primaryStage.setMaximized(true);
         window.setScene(sceneX);
