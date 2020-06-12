@@ -25,7 +25,7 @@
                               <Font size="21.0" />
                            </font>
                         </Label>
-                        <TextField prefHeight="40.0" prefWidth="282.0">
+                        <TextField fx:id="username" prefHeight="40.0" prefWidth="282.0">
                            <VBox.margin>
                               <Insets top="-10.0" />
                            </VBox.margin>
@@ -42,7 +42,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <PasswordField prefHeight="42.0" prefWidth="297.0">
+                        <PasswordField fx:id="password" prefHeight="42.0" prefWidth="297.0">
                            <VBox.margin>
                               <Insets top="-10.0" />
                            </VBox.margin>

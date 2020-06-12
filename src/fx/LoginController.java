@@ -13,8 +13,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button; 
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import model.Info;
 
 /**
  * FXML Controller class
@@ -24,9 +27,10 @@ import javafx.stage.Stage;
 public class LoginController implements Initializable {
 
     @FXML private Button sign_in; 
-    @FXML  private Label sign_up;
-    //Stage window;
-    
+    @FXML  private Label sign_up; 
+    @FXML private TextField username;
+    @FXML private PasswordField password;
+     Info info = new Info();
     /**
      * Initializes the controller class.
      */
@@ -36,7 +40,18 @@ public class LoginController implements Initializable {
     }    
 
     @FXML
-    private void Sign_in(ActionEvent event) {
+    private void Sign_in(ActionEvent event) throws IOException {
+        String user = username.getText().trim();
+        String pass = password.getText().trim();
+        
+        //Check if the username exists and if so check if the pass matches
+        if (info.getUserpass().containsKey(user)) {
+            String storedPass = info.getUserpass().get(user);
+            if (storedPass.equals(pass)) {
+                System.out.print("WELCOME!");
+            }
+        }
+        
     }
 
     @FXML
