@@ -70,6 +70,7 @@ public class SignUpController implements Initializable {
                 dialogPane.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
                 dialogPane.getStyleClass().add("myDialog");
                 alert.show();
+                username.setText("");
             }
             // Password not valid
             if (info.getPasswordTest() == "notValid") {
@@ -78,6 +79,7 @@ public class SignUpController implements Initializable {
                 dialogPane.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
                 dialogPane.getStyleClass().add("myDialog");
                 alert.show();
+                password.setText("");
             }
             // Email not valid
             if (info.getEmailTest() == "notValid") {
@@ -86,6 +88,7 @@ public class SignUpController implements Initializable {
                 dialogPane.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
                 dialogPane.getStyleClass().add("myDialog");
                 alert.show();
+                email.setText("");
             }
         }
     }

@@ -51,7 +51,7 @@ public class LoginController implements Initializable {
         //Check if the username exists and if so check if the pass matches
         if (info.getUserpass().containsKey(user)) {
             String storedPass = info.getUserpass().get(user);
-            // If pass is right
+            // If password is right
             if (storedPass.equals(pass)) {
                Parent signUp = FXMLLoader.load(getClass().getResource("signUp.fxml"));
                 Scene scene = new Scene(signUp,1500, 870);
@@ -72,6 +72,7 @@ public class LoginController implements Initializable {
                 alert.show();
             }
         }
+        // If username doesn't exist
         if (!(info.getUserpass().containsKey(user))) {
              Alert alert = new Alert(ERROR, "The username is not valid!", OK);
              DialogPane dialogPane = alert.getDialogPane();
