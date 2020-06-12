@@ -57,48 +57,35 @@ public class SignUpController implements Initializable {
         
         //Fields being empty
         if (user.isEmpty() || user_email.isEmpty() || user_pass.isEmpty()) {
-            Alert alert = new Alert(ERROR, "You should fill every fields ", OK);
-            DialogPane dialogPane = alert.getDialogPane();
-            dialogPane.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
-            dialogPane.getStyleClass().add("myDialog");
-            alert.show();
-        } else if(info.getUsernameTest() == "notValid" || info.getPasswordTest() == "notValid" || 
+            alert("You should fill every fields");
+        }
+        else if(info.getUsernameTest() == "notValid" || info.getPasswordTest() == "notValid" || 
                 info.getEmailTest() == "notValid"){
             //Username not valid
             if (info.getUsernameTest() == "notValid") {
-                Alert alert = new Alert(ERROR, "The entered username is not valid!\nYour username should only contain letters and numbers ", OK);
-                DialogPane dialogPane = alert.getDialogPane();
-                dialogPane.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
-                dialogPane.getStyleClass().add("myDialog");
-                alert.show();
-                username.setText("");
+                alert("The entered username is not valid!\nYour username should only contain letters and numbers");
             }
             // Password not valid
             if (info.getPasswordTest() == "notValid") {
-                Alert alert = new Alert(ERROR, "The entered Password is not valid!\nYour password should contain at least eight characters, at least one letter and one number ", OK);
-                DialogPane dialogPane = alert.getDialogPane();
-                dialogPane.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
-                dialogPane.getStyleClass().add("myDialog");
-                alert.show();
-                password.setText("");
+                alert("The entered Password is not valid!\nYour password should contain at least eight characters, at least one letter and one number");
             }
             // Email not valid
             if (info.getEmailTest() == "notValid") {
-                Alert alert = new Alert(ERROR, "The entered email is not valid!", OK);
-                DialogPane dialogPane = alert.getDialogPane();
-                dialogPane.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
-                dialogPane.getStyleClass().add("myDialog");
-                alert.show();
-                email.setText("");
+                alert("The entered email is not valid!");
             }
         } else if(info.getUserpass().containsKey(user)){
-                Alert alert = new Alert(ERROR, "The entered username already exists ", OK);
-                DialogPane dialogPane = alert.getDialogPane();
-                dialogPane.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
-                dialogPane.getStyleClass().add("myDialog");
-                alert.show();
-                username.setText("");
+                alert("The entered username already exists");
         }
+    }
+    
+    // A method to show the alerts easier
+    private Alert alert(String AlertText){
+        Alert alert = new Alert(ERROR, AlertText, OK);
+         DialogPane dialogPane = alert.getDialogPane();
+         dialogPane.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
+         dialogPane.getStyleClass().add("myDialog");
+         alert.show(); 
+        return alert;
     }
 
     @FXML
