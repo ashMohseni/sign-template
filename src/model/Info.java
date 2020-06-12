@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class Info {
 
-    protected String username;
+    protected String username, usernameTest;
     protected String email;
     protected String password;
     HashMap<String, String> userpass = new HashMap<>();
@@ -29,7 +29,15 @@ public class Info {
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        if (username.matches("^[A-Za-z0-9_-]*$")) {
+             this.username = username;
+        } else{
+         usernameTest = "notValid";   
+        }
+    }
+
+    public String getUsernameTest() {
+        return usernameTest;
     }
 
     public void setEmail(String email) {
@@ -46,12 +54,14 @@ public class Info {
 
     // To write the new user's info to the UserPass.txt
     public void printUserPass() throws IOException {
+        if (usernameTest != "notValid") {
         File file = new File("src/model/UserPass.txt");
         FileWriter fw = new FileWriter(file, true);
         try (fw) {
             fw.write(username + " ");
             fw.write(password);
             fw.write("\n");
+        }
         }
     }
 
@@ -68,8 +78,10 @@ public class Info {
     }
 
     public HashMap<String, String> getUserpass() throws IOException {
-        userpass.put(username, password);
-        ReadUserPass();
+        if (usernameTest != "notValid") {
+            userpass.put(username, password);
+            ReadUserPass();
+        }
         return userpass;
     }
 
