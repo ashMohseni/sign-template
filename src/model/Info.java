@@ -1,9 +1,11 @@
 package model;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Scanner;
 
 /**
  *
@@ -42,20 +44,32 @@ public class Info {
         this.userpass = userpass;
     }
 
-    public HashMap<String, String> getUserpass() throws IOException {
-        userpass.put(username, password);
-        return userpass;
-    }
-
     // To write the new user's info to the UserPass.txt
     public void printUserPass() throws IOException {
         File file = new File("src/model/UserPass.txt");
         FileWriter fw = new FileWriter(file, true);
         try (fw) {
-            fw.write(username);
-            fw.write("=");
+            fw.write(username + " ");
             fw.write(password);
             fw.write("\n");
         }
     }
+
+    // To read the user's info and store it in the hashMap so we can check it later on
+    public void ReadUserPass() throws FileNotFoundException {
+        File file = new File("src/model/UserPass.txt");
+        Scanner sc = new Scanner(file);
+
+        while (sc.hasNext()) {
+            String user = sc.next();
+            String pss = sc.next();
+            userpass.put(user, pss);
+        }
+    }
+
+    public HashMap<String, String> getUserpass() throws IOException {
+        ReadUserPass();
+        return userpass;
+    }
+
 }

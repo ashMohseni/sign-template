@@ -52,7 +52,7 @@ public class SignUpController implements Initializable {
 
 
         System.out.println(info.getUserpass());
-        info.printUserPass();
+        info.printUserPass(); 
     }
     
 
