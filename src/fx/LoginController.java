@@ -11,7 +11,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import static javafx.scene.control.Alert.AlertType.ERROR;
 import javafx.scene.control.Button; 
+import static javafx.scene.control.ButtonType.OK;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -47,8 +51,26 @@ public class LoginController implements Initializable {
         //Check if the username exists and if so check if the pass matches
         if (info.getUserpass().containsKey(user)) {
             String storedPass = info.getUserpass().get(user);
+            // If pass is right
             if (storedPass.equals(pass)) {
-                System.out.print("WELCOME!");
+               Parent signUp = FXMLLoader.load(getClass().getResource("signUp.fxml"));
+                Scene scene = new Scene(signUp,1500, 870);
+                scene.getStylesheets().add(this.getClass().getResource("login.css").toExternalForm());
+                 
+                Stage window = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+                window.setScene(scene);
+                window.setTitle("Sign up");
+                window.setMaximized(true);
+                window.show();
+            }
+            // If password is not right
+            else{
+                Alert alert = new Alert(ERROR, "Your Password is wrong!", OK);
+                DialogPane dialogPane = alert.getDialogPane();
+                dialogPane.getStylesheets().add( getClass().getResource("login.css").toExternalForm());
+                dialogPane.getStyleClass().add("myDialog");
+                alert.show();
+                System.out.print("RIDI");
             }
         }
         
