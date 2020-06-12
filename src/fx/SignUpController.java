@@ -62,7 +62,8 @@ public class SignUpController implements Initializable {
             dialogPane.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
             dialogPane.getStyleClass().add("myDialog");
             alert.show();
-        } else {
+        } else if(info.getUsernameTest() == "notValid" || info.getPasswordTest() == "notValid" || 
+                info.getEmailTest() == "notValid"){
             //Username not valid
             if (info.getUsernameTest() == "notValid") {
                 Alert alert = new Alert(ERROR, "The entered username is not valid!\nYour username should only contain letters and numbers ", OK);
@@ -90,6 +91,13 @@ public class SignUpController implements Initializable {
                 alert.show();
                 email.setText("");
             }
+        } else if(info.getUserpass().containsKey(user)){
+                Alert alert = new Alert(ERROR, "The entered username already exists ", OK);
+                DialogPane dialogPane = alert.getDialogPane();
+                dialogPane.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
+                dialogPane.getStyleClass().add("myDialog");
+                alert.show();
+                username.setText("");
         }
     }
 
