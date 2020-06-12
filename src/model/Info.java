@@ -1,9 +1,8 @@
-
 package model;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 
 /**
@@ -11,17 +10,17 @@ import java.util.HashMap;
  * @author ashkan mohseni
  */
 public class Info {
-    
+
     protected String username;
-    protected String email; 
+    protected String email;
     protected String password;
     HashMap<String, String> userpass = new HashMap<>();
-    
-    public Info(){
-        
+
+    public Info() {
+
     }
-    
-    public Info(String username, String email, String password){
+
+    public Info(String username, String email, String password) {
         setUsername(username);
         setEmail(email);
         setPassword(password);
@@ -42,21 +41,21 @@ public class Info {
     public void setUserpass(HashMap<String, String> userpass) {
         this.userpass = userpass;
     }
-    
-    public HashMap<String, String> getUserpass() {
+
+    public HashMap<String, String> getUserpass() throws IOException {
         userpass.put(username, password);
         return userpass;
     }
-    
-    public void printUserPass() throws FileNotFoundException{
+
+    // To write the new user's info to the UserPass.txt
+    public void printUserPass() throws IOException {
         File file = new File("src/model/UserPass.txt");
-        PrintWriter pw = new PrintWriter(file);
-       try(pw){
-        pw.write(username);
-        pw.write("=");
-        pw.write(password);
-        pw.write("\n");
-        pw.close();
-       }
+        FileWriter fw = new FileWriter(file, true);
+        try (fw) {
+            fw.write(username);
+            fw.write("=");
+            fw.write(password);
+            fw.write("\n");
+        }
     }
 }

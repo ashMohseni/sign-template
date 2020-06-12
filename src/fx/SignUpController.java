@@ -41,7 +41,7 @@ public class SignUpController implements Initializable {
     }    
 
     @FXML
-    private void create_account(ActionEvent event) throws FileNotFoundException {
+    private void create_account(ActionEvent event) throws FileNotFoundException, IOException {
         
         String user = username.getText().trim();
         String user_email = email.getText().trim();
