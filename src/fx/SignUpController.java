@@ -12,6 +12,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import static javafx.scene.control.Alert.AlertType.ERROR;
+import static javafx.scene.control.ButtonType.OK;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -53,6 +57,14 @@ public class SignUpController implements Initializable {
 
         System.out.println(info.getUserpass());
         info.printUserPass(); 
+        
+        if (info.getUsernameTest() == "notValid") {
+            Alert alert = new Alert(ERROR, "The entered username is not valid!\nYour username should only contain letters and numbers ", OK);
+             DialogPane dialogPane = alert.getDialogPane();
+                dialogPane.getStylesheets().add( getClass().getResource("login.css").toExternalForm());
+                dialogPane.getStyleClass().add("myDialog");
+                alert.show();
+        }
     }
     
 
