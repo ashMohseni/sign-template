@@ -22,19 +22,19 @@
                         <VBox spacing="7.0">
                            <children>
                               <Label id="user-title" text="Username" />
-                              <TextField prefHeight="41.0" prefWidth="334.0" />
+                              <TextField fx:id="username" prefHeight="41.0" prefWidth="334.0" />
                               <Label id="user-title" text="Email address">
                                  <VBox.margin>
                                     <Insets top="20.0" />
                                  </VBox.margin>
                               </Label>
-                              <TextField prefHeight="43.0" prefWidth="334.0" />
+                              <TextField fx:id="email" prefHeight="43.0" prefWidth="334.0" />
                               <Label id="user-title" text="Password">
                                  <VBox.margin>
                                     <Insets top="20.0" />
                                  </VBox.margin>
                               </Label>
-                              <PasswordField prefHeight="43.0" prefWidth="334.0">
+                              <PasswordField fx:id="password" prefHeight="43.0" prefWidth="334.0">
                                  <font>
                                     <Font size="10.0" />
                                  </font>
