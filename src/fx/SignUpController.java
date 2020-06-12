@@ -79,6 +79,14 @@ public class SignUpController implements Initializable {
                 dialogPane.getStyleClass().add("myDialog");
                 alert.show();
             }
+            // Email not valid
+            if (info.getEmailTest() == "notValid") {
+                Alert alert = new Alert(ERROR, "The entered email is not valid!", OK);
+                DialogPane dialogPane = alert.getDialogPane();
+                dialogPane.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
+                dialogPane.getStyleClass().add("myDialog");
+                alert.show();
+            }
         }
     }
 

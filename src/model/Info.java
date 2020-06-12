@@ -14,8 +14,9 @@ import java.util.Scanner;
 public class Info {
 
     protected String username, usernameTest;
-    protected String email;
+    protected String email, emailTest;
     protected String password, passwordTest;
+    
     HashMap<String, String> userpass = new HashMap<>();
 
     public Info() {
@@ -41,7 +42,15 @@ public class Info {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        if (email.matches("^[A-Za-z0-9_-]*$")) {
+        this.email = email;    
+        } else{
+            emailTest = "notValid";
+        } 
+    }
+
+    public String getEmailTest() {
+        return emailTest;
     }
 
     public void setPassword(String password) {
@@ -63,7 +72,7 @@ public class Info {
 
     // To write the new user's info to the UserPass.txt
     public void printUserPass() throws IOException {
-        if (usernameTest != "notValid" && passwordTest != "notValid") {
+        if (usernameTest != "notValid" && passwordTest != "notValid" && emailTest != "notValid") {
         File file = new File("src/model/UserPass.txt");
         FileWriter fw = new FileWriter(file, true);
         try (fw) {
@@ -87,7 +96,7 @@ public class Info {
     }
 
     public HashMap<String, String> getUserpass() throws IOException {
-        if (usernameTest != "notValid" && passwordTest != "notValid") {
+        if (usernameTest != "notValid" && passwordTest != "notValid" && emailTest !="notValid") {
             userpass.put(username, password);
             ReadUserPass();
         }
