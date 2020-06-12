@@ -16,8 +16,33 @@
    <center>
       <AnchorPane prefHeight="443.0" prefWidth="665.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox layoutX="549.0" layoutY="257.0" spacing="30.0">
+            <VBox layoutX="552.0" layoutY="162.0" spacing="30.0">
                <children>
+                  <VBox id="main-VBox">
+                     <children>
+                        <HBox prefHeight="26.0" prefWidth="181.0">
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <children>
+                              <Label id="login-title" alignment="TOP_LEFT" onMouseClicked="#sign_up" prefHeight="50.0" prefWidth="200.0" stylesheets="@login.css" text="Login Page">
+                                 <font>
+                                    <Font size="26.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="60.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </VBox>
                   <VBox id="main-VBox" prefHeight="294.0" prefWidth="351.0" spacing="20.0">
                      <children>
                         <Label id="user-title" prefHeight="26.0" prefWidth="280.0" text="Username or email address" textFill="WHITE">

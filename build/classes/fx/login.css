@@ -38,6 +38,10 @@
 
 }
 
+#login-title{
+     -fx-font-size: 40; 
+}
+
  .dialog-pane{
   -fx-background-image: url("../resources/alert.jpg");
    -fx-background-size: cover; 
