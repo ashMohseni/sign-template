@@ -68,6 +68,7 @@ public class Info {
     }
 
     public HashMap<String, String> getUserpass() throws IOException {
+        userpass.put(username, password);
         ReadUserPass();
         return userpass;
     }
