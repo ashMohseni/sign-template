@@ -70,9 +70,16 @@ public class LoginController implements Initializable {
                 dialogPane.getStylesheets().add( getClass().getResource("login.css").toExternalForm());
                 dialogPane.getStyleClass().add("myDialog");
                 alert.show();
-                System.out.print("RIDI");
             }
         }
+        if (!(info.getUserpass().containsKey(user))) {
+             Alert alert = new Alert(ERROR, "The username is not valid!", OK);
+             DialogPane dialogPane = alert.getDialogPane();
+                dialogPane.getStylesheets().add( getClass().getResource("login.css").toExternalForm());
+                dialogPane.getStyleClass().add("myDialog");
+                alert.show();
+        }
+        
         
     }
 
