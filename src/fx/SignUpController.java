@@ -56,7 +56,7 @@ public class SignUpController implements Initializable {
 
 
         System.out.println(info.getUserpass());
-        info.printUserPass(); 
+        info.printUserPass();  
         
         if (info.getUsernameTest() == "notValid") {
             Alert alert = new Alert(ERROR, "The entered username is not valid!\nYour username should only contain letters and numbers ", OK);
@@ -65,6 +65,14 @@ public class SignUpController implements Initializable {
                 dialogPane.getStyleClass().add("myDialog");
                 alert.show();
         }
+        if (info.getPasswordTest() == "notValid") {
+             Alert alert = new Alert(ERROR, "The entered Password is not valid!\nYour password should contain at least eight characters, at least one letter and one number ", OK);
+             DialogPane dialogPane = alert.getDialogPane();
+                dialogPane.getStylesheets().add( getClass().getResource("login.css").toExternalForm());
+                dialogPane.getStyleClass().add("myDialog");
+                alert.show();
+        }
+        
     }
     
 

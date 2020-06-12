@@ -15,7 +15,7 @@ public class Info {
 
     protected String username, usernameTest;
     protected String email;
-    protected String password;
+    protected String password, passwordTest;
     HashMap<String, String> userpass = new HashMap<>();
 
     public Info() {
@@ -45,16 +45,25 @@ public class Info {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        if (password.matches("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$")) {
+            this.password = password;
+        } else{
+            passwordTest = "notValid";
+        }
+        
     }
 
+    public String getPasswordTest() {
+        return passwordTest;
+    }
+    
     public void setUserpass(HashMap<String, String> userpass) {
         this.userpass = userpass;
     }
 
     // To write the new user's info to the UserPass.txt
     public void printUserPass() throws IOException {
-        if (usernameTest != "notValid") {
+        if (usernameTest != "notValid" && passwordTest != "notValid") {
         File file = new File("src/model/UserPass.txt");
         FileWriter fw = new FileWriter(file, true);
         try (fw) {
@@ -78,7 +87,7 @@ public class Info {
     }
 
     public HashMap<String, String> getUserpass() throws IOException {
-        if (usernameTest != "notValid") {
+        if (usernameTest != "notValid" && passwordTest != "notValid") {
             userpass.put(username, password);
             ReadUserPass();
         }
