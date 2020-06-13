@@ -57,13 +57,13 @@ public class LoginController implements Initializable {
             String storedPass = info.getUserpass().get(user);
             // If password is right
             if (storedPass.equals(pass)) {
-                Parent signUp = FXMLLoader.load(getClass().getResource("signUp.fxml"));
+                Parent signUp = FXMLLoader.load(getClass().getResource("successful.fxml"));
                 Scene scene = new Scene(signUp, 1500, 870);
                 scene.getStylesheets().add(this.getClass().getResource("login.css").toExternalForm());
 
                 Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 window.setScene(scene);
-                window.setTitle("Sign up");
+                window.setTitle("successful login");
                 window.setMaximized(true);
                 window.show();
             } // If password is not right
