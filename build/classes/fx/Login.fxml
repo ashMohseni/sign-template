@@ -18,36 +18,21 @@
    <center>
       <AnchorPane prefHeight="857.0" prefWidth="1220.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox layoutX="550.0" layoutY="114.0" spacing="30.0">
+            <Label alignment="TOP_LEFT" layoutX="643.0" layoutY="138.0" onMouseClicked="#sign_up" prefHeight="61.0" prefWidth="168.0" stylesheets="@login.css" text="Login Page" textFill="WHITE">
+               <font>
+                  <Font name="Bebas Neue Regular" size="47.0" />
+               </font>
+            </Label>
+            <VBox layoutX="551.0" layoutY="174.0" spacing="30.0">
                <children>
                   <VBox id="main-VBox">
-                     <children>
-                        <HBox prefHeight="26.0" prefWidth="181.0">
-                           <padding>
-                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                           </padding>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                           <children>
-                              <Label id="login-title" alignment="TOP_LEFT" onMouseClicked="#sign_up" prefHeight="50.0" prefWidth="200.0" stylesheets="@login.css" text="Login Page">
-                                 <font>
-                                    <Font size="26.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="60.0" />
-                                 </HBox.margin>
-                              </Label>
-                           </children>
-                        </HBox>
-                     </children>
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </VBox>
                   <VBox id="main-VBox" prefHeight="294.0" prefWidth="351.0" spacing="20.0">
                      <children>
-                        <Label id="user-title" prefHeight="26.0" prefWidth="280.0" text="Username or email address" textFill="WHITE">
+                        <Label id="user-title" prefHeight="26.0" prefWidth="280.0" text="Username " textFill="WHITE">
                            <font>
                               <Font size="21.0" />
                            </font>
@@ -127,12 +112,12 @@
    <bottom>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="gitHub" fitHeight="40.0" fitWidth="46.0" layoutX="701.0" layoutY="34.0" onMouseClicked="#git" onMouseEntered="#gitEffect" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="gitHub" fitHeight="40.0" fitWidth="46.0" layoutX="708.0" layoutY="27.0" onMouseClicked="#git" onMouseEntered="#gitEffect" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../resources/GitHub-Mark-Light-120px-plus.png" />
                </image>
             </ImageView>
-            <Label layoutX="662.0" layoutY="80.0" prefHeight="27.0" prefWidth="157.0" text="Created by Ash" textFill="WHITE">
+            <Label layoutX="668.0" layoutY="73.0" prefHeight="27.0" prefWidth="157.0" text="Created by Ash" textFill="WHITE">
                <font>
                   <Font name="Abel Regular" size="21.0" />
                </font>
