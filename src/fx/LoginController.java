@@ -1,9 +1,8 @@
-
 package fx;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ResourceBundle; 
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import static javafx.scene.control.Alert.AlertType.ERROR;
-import javafx.scene.control.Button; 
+import javafx.scene.control.Button;
 import static javafx.scene.control.ButtonType.OK;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
@@ -30,74 +29,77 @@ import model.Info;
  */
 public class LoginController implements Initializable {
 
-    @FXML private Button sign_in; 
-    @FXML  private Label sign_up; 
-    @FXML private TextField username;
-    @FXML private PasswordField password;
-     Info info = new Info();
+    @FXML
+    private Button sign_in;
+    @FXML
+    private Label sign_up;
+    @FXML
+    private TextField username;
+    @FXML
+    private PasswordField password;
+    Info info = new Info();
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-    }    
+
+    }
 
     @FXML
     private void Sign_in(ActionEvent event) throws IOException {
         String user = username.getText().trim();
         String pass = password.getText().trim();
-        
+
         //Check if the username exists and if so check if the pass matches
         if (info.getUserpass().containsKey(user)) {
             String storedPass = info.getUserpass().get(user);
             // If password is right
             if (storedPass.equals(pass)) {
-               Parent signUp = FXMLLoader.load(getClass().getResource("signUp.fxml"));
-                Scene scene = new Scene(signUp,1500, 870);
+                Parent signUp = FXMLLoader.load(getClass().getResource("signUp.fxml"));
+                Scene scene = new Scene(signUp, 1500, 870);
                 scene.getStylesheets().add(this.getClass().getResource("login.css").toExternalForm());
-                 
-                Stage window = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+
+                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 window.setScene(scene);
                 window.setTitle("Sign up");
                 window.setMaximized(true);
                 window.show();
-            }
-            // If password is not right
-            else{
-                Alert alert = new Alert(ERROR, "Your Password is wrong!", OK);
-                DialogPane dialogPane = alert.getDialogPane();
-                dialogPane.getStylesheets().add( getClass().getResource("login.css").toExternalForm());
-                dialogPane.getStyleClass().add("myDialog");
-                alert.show();
+            } // If password is not right
+            else {
+                alert("Your Password is wrong!");
             }
         }
         // If username doesn't exist
         if (!(info.getUserpass().containsKey(user))) {
-             Alert alert = new Alert(ERROR, "The username is not valid!", OK);
-             DialogPane dialogPane = alert.getDialogPane();
-                dialogPane.getStylesheets().add( getClass().getResource("login.css").toExternalForm());
-                dialogPane.getStyleClass().add("myDialog");
-                alert.show();
+            alert("The username is not valid!");
         }
-        
-        
+
     }
 
     @FXML
     private void sign_up(MouseEvent event) throws IOException {
 
-                Parent signUp = FXMLLoader.load(getClass().getResource("signUp.fxml"));
-                Scene scene = new Scene(signUp,1500, 870);
-                scene.getStylesheets().add(this.getClass().getResource("login.css").toExternalForm());
-                
-                //This line gets the stage information
-                Stage window = (Stage)((Node)event.getSource()).getScene().getWindow(); 
-                window.setScene(scene);
-                window.setTitle("Sign up");
-                window.setMaximized(true);
-                window.show();
-                
+        Parent signUp = FXMLLoader.load(getClass().getResource("signUp.fxml"));
+        Scene scene = new Scene(signUp, 1500, 870);
+        scene.getStylesheets().add(this.getClass().getResource("login.css").toExternalForm());
+
+        //This line gets the stage information
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene);
+        window.setTitle("Sign up");
+        window.setMaximized(true);
+        window.show();
+
     }
-    
+
+    private Alert alert(String alertText) {
+        Alert alert = new Alert(ERROR, alertText, OK);
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
+        dialogPane.getStyleClass().add("myDialog");
+        alert.show();
+        return alert;
+    }
 }
