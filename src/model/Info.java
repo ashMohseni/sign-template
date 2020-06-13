@@ -33,37 +33,37 @@ public class Info {
         if (username.matches("^[A-Za-z0-9_-]*$")) {
              this.username = username;
         } else{
-         usernameTest = "notValid";   
+         this.username = "notValid";   
         }
     }
 
-    public String getUsernameTest() {
-        return usernameTest;
+    public String getUsername() {
+        return username;
     }
 
     public void setEmail(String email) {
-        if (email.matches("^[A-Za-z0-9_-]*$")) {
+        if (email.matches("^(.+)@(.+)$")) {
         this.email = email;    
         } else{
-            emailTest = "notValid";
+            this.email = "notValid";
         } 
     }
 
-    public String getEmailTest() {
-        return emailTest;
+    public String getEmail() {
+        return email;
     }
 
     public void setPassword(String password) {
-        if (password.matches("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$")) {
+        if (password.matches("(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$")) {
             this.password = password;
         } else{
-            passwordTest = "notValid";
+            this.password = "notValid";
         }
         
     }
 
-    public String getPasswordTest() {
-        return passwordTest;
+    public String getPassword() {
+        return password;
     }
     
     public void setUserpass(HashMap<String, String> userpass) {
@@ -72,7 +72,7 @@ public class Info {
 
     // To write the new user's info to the UserPass.txt
     public void printUserPass() throws IOException {
-        if (usernameTest != "notValid" && passwordTest != "notValid" && emailTest != "notValid") {
+        if (username != "notValid" && password != "notValid" && email != "notValid") {
         File file = new File("src/model/UserPass.txt");
         FileWriter fw = new FileWriter(file, true);
         try (fw) {
@@ -96,7 +96,7 @@ public class Info {
     }
 
     public HashMap<String, String> getUserpass() throws IOException {
-        if (usernameTest != "notValid" && passwordTest != "notValid" && emailTest !="notValid") {
+        if (username != "notValid" && password != "notValid" && email !="notValid") {
             userpass.put(username, password);
             ReadUserPass();
         }

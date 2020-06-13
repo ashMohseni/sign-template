@@ -65,24 +65,22 @@ public class SignUpController implements Initializable {
         //Fields being empty
         if (user.isEmpty() || user_email.isEmpty() || user_pass.isEmpty()) {
             alert("You should fill every fields");
-        }
-        else if(info.getUsernameTest() == "notValid" || info.getPasswordTest() == "notValid" || 
-                info.getEmailTest() == "notValid"){
+        } 
+        if(info.getUsername() == "notValid" || info.getPassword() == "notValid" || 
+                info.getEmail() == "notValid"){
             //Username not valid
-            if (info.getUsernameTest() == "notValid") {
+            if (info.getUsername() == "notValid") {
                 alert("The entered username is not valid!\nYour username should only contain letters and numbers");
             }
             // Password not valid
-            if (info.getPasswordTest() == "notValid") {
-                alert("The entered Password is not valid!\nYour password should contain at least eight characters, at least one letter and one number");
+            if (info.getPassword() == "notValid") {
+                alert("The entered Password is not valid!\nYour password should contain at least eight characters,  a uppercase letter, a lowercase letter and a number");
             }
             // Email not valid
-            if (info.getEmailTest() == "notValid") {
+            if (info.getEmail() == "notValid") {
                 alert("The entered email is not valid!");
             }
-        } else if(info.getUserpass().containsKey(user)){
-                alert("The entered username already exists");
-        }
+        }   
     }
     
     // A method to show the alerts easier

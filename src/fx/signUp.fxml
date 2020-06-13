@@ -46,10 +46,7 @@
                                     <Font size="10.0" />
                                  </font>
                               </PasswordField>
-                              <Label lineSpacing="2.0" prefHeight="44.0" prefWidth="334.0" text="Make sure it's at least 15 characters OR at least 8 characters &#10;including a number and a lowercase letter. ">
-                                 <font>
-                                    <Font size="12.0" />
-                                 </font>
+                              <Label lineSpacing="2.0" prefHeight="44.0" prefWidth="359.0" text="Make sure it's at least 8 characters including a number,&#10;a uppercase letter and a lowercase letter. ">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin></Label>
@@ -75,12 +72,12 @@
                      <children>
                         <HBox prefHeight="89.0" prefWidth="371.0">
                            <children>
-                              <Label lineSpacing="2.0" prefHeight="23.0" prefWidth="252.0" text="If you have an account.">
+                              <Label lineSpacing="2.0" prefHeight="23.0" prefWidth="262.0" text="If you have an account.">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                                  <HBox.margin>
-                                    <Insets top="3.0" />
+                                    <Insets left="4.0" top="3.0" />
                                  </HBox.margin>
                               </Label>
                               <Label id="sign-up" lineSpacing="2.0" onMouseClicked="#sign_in" prefHeight="23.0" prefWidth="228.0" text="Sign in from here.">
@@ -88,7 +85,7 @@
                                     <Font size="21.0" />
                                  </font>
                                  <HBox.margin>
-                                    <Insets left="-1.0" top="3.0" />
+                                    <Insets left="-4.0" top="3.0" />
                                  </HBox.margin>
                               </Label>
                            </children>
