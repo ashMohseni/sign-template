@@ -13,9 +13,10 @@ import java.util.Scanner;
  */
 public class Info {
 
-    protected String username, usernameTest;
-    protected String email, emailTest;
-    protected String password, passwordTest;
+    private String username;
+    private String email;
+    private String password;
+    private String confirmation;
     
     HashMap<String, String> userpass = new HashMap<>();
 
@@ -99,8 +100,14 @@ public class Info {
         if (username != "notValid" && password != "notValid" && email !="notValid") {
             userpass.put(username, password);
             ReadUserPass();
+            this.confirmation = "confirm";
         }
         return userpass;
     }
+
+    public String getConfirmation() {
+        return confirmation;
+    }
+    
 
 }

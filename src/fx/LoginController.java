@@ -23,7 +23,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.Info;
@@ -40,8 +39,8 @@ public class LoginController implements Initializable {
     @FXML private TextField username;
     @FXML private PasswordField password;
     @FXML private ImageView gitHub;
+
     Info info = new Info();
-   
 
     /**
      * Initializes the controller class.
@@ -72,7 +71,7 @@ public class LoginController implements Initializable {
                 window.show();
             } // If password is not right
             else {
-                alert("Your Password is wrong!");
+                alert("The Password is wrong!");
             }
         }
         // If username doesn't exist
@@ -82,6 +81,7 @@ public class LoginController implements Initializable {
 
     }
 
+    // To transfer to the sign up page
     @FXML
     private void sign_up(MouseEvent event) throws IOException {
 
@@ -98,6 +98,7 @@ public class LoginController implements Initializable {
 
     }
 
+    // A method to show the alerts easier
     private Alert alert(String alertText) {
         Alert alert = new Alert(ERROR, alertText, OK);
         DialogPane dialogPane = alert.getDialogPane();
@@ -107,21 +108,23 @@ public class LoginController implements Initializable {
         return alert;
     }
 
+    // To transfer to my gitHub account once the icon is clicked
     @FXML
     private void git(MouseEvent event) throws URISyntaxException, IOException {
         Desktop desktop = Desktop.getDesktop();
         desktop.browse(new URI("https://github.com/ashMohseni"));
     }
 
+    // The gitHub icon effect
     @FXML
     private void gitEffect(MouseEvent event) {
         // entering imageView 
         ColorAdjust colorAdjust = new ColorAdjust();
         colorAdjust.setBrightness(-0.18);
-        gitHub.setEffect(colorAdjust); 
-         // exiting imageView
-        gitHub.addEventFilter(MouseEvent.MOUSE_EXITED, eh ->{
-        gitHub.setEffect(null);
+        gitHub.setEffect(colorAdjust);
+        // exiting imageView
+        gitHub.addEventFilter(MouseEvent.MOUSE_EXITED, eh -> {
+            gitHub.setEffect(null);
         });
     }
 
