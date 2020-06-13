@@ -1,7 +1,10 @@
 package fx;
 
+import java.awt.Desktop;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -17,6 +20,8 @@ import static javafx.scene.control.ButtonType.OK;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.ColorAdjust;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.Info;
@@ -31,8 +36,10 @@ public class SignUpController implements Initializable {
     @FXML private TextField username;
     @FXML private TextField email;
     @FXML private PasswordField password;
+    @FXML private ImageView gitHub;
 
     Info info = new Info();
+    
 
     /**
      * Initializes the controller class.
@@ -97,6 +104,24 @@ public class SignUpController implements Initializable {
         window.setScene(scene);
         window.setMaximized(true);
         window.show();
+    }
+
+    @FXML
+    private void gitEffect(MouseEvent event) {
+        // entering imageView 
+        ColorAdjust colorAdjust = new ColorAdjust();
+        colorAdjust.setBrightness(-0.18);
+        gitHub.setEffect(colorAdjust); 
+         // exiting imageView
+        gitHub.addEventFilter(MouseEvent.MOUSE_EXITED, eh ->{
+        gitHub.setEffect(null);
+        });
+    }
+
+    @FXML
+    private void git(MouseEvent event) throws URISyntaxException, IOException {
+        Desktop desktop = Desktop.getDesktop();
+        desktop.browse(new URI("https://github.com/ashMohseni"));
     }
 
 }
