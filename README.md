@@ -1,4 +1,4 @@
-# Login is a JavaFx application🔐
+# Sign Template is a JavaFX application 🔐
 
 
  `Status: Complete !!🦦`
@@ -36,7 +36,7 @@ This program stores the user's info into a file and it would use it later to che
 As I've mentioned before, once the user **inputs** their information, the application would then **store/write** that information to a file so we could have access to it at any time. Then the next step is **reading** and **writing back** those very pieces of information to a **hashMap**, designed to store the username(**key**) and it's password(**value**), so once a user wants to sign in, we could easily **approve** its username and password. In another word, it would be easy to apply the proper **exceptions** to it. Also when signing up, I've coded some **regex** to make sure the entered values are correct and as the **standards**.
 
 
-<h2> Setup💡 </h2>
+<h2> How to setup </h2>
 
 <p align="center">
 <img src="https://github.com/ashMohseni/Login/blob/master/src/resources/instruction%202.gif?raw=true" alt="instructions" width="90%" height="70%">
