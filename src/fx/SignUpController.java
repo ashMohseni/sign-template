@@ -61,7 +61,7 @@ public class SignUpController implements Initializable {
 
         //System.out.println(info.getUserpass());
         info.printUserPass();
-
+        
         //Fields being empty
         if (user.isEmpty() || user_email.isEmpty() || user_pass.isEmpty()) {
             alert("You should fill every fields");
@@ -80,14 +80,14 @@ public class SignUpController implements Initializable {
             if (info.getEmail() == "notValid") {
                 alert("The entered email is invalid!");
             }
-        }
-        if (info.getConfirmation() == "confirm") {
+        } else {
             Alert alert = new Alert(AlertType.NONE, "\nAccount created successfully!", OK);
             DialogPane dialogPane = alert.getDialogPane();
             dialogPane.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
             dialogPane.getStyleClass().add("myDialog");
             alert.show();
         }
+        
     }
 
     // A method to show the alerts easier

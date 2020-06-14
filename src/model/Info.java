@@ -16,7 +16,6 @@ public class Info {
     private String username;
     private String email;
     private String password;
-    private String confirmation;
     
     HashMap<String, String> userpass = new HashMap<>();
 
@@ -100,14 +99,8 @@ public class Info {
         if (username != "notValid" && password != "notValid" && email !="notValid") {
             userpass.put(username, password);
             ReadUserPass();
-            this.confirmation = "confirm";
         }
         return userpass;
     }
-
-    public String getConfirmation() {
-        return confirmation;
-    }
     
-
 }

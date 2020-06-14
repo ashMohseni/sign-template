@@ -71,7 +71,7 @@ public class LoginController implements Initializable {
                 window.show();
             } // If password is not right
             else {
-                alert("The Password is wrong!");
+                alert("The entered password is wrong!");
             }
         }
         // If username doesn't exist
